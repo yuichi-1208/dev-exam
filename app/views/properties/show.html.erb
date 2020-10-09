@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<p>物件名：<%= @property.property_name %></p>
+<p>賃料：<%= @property.rent %></p>
+<p>住所：<%= @property.address %></p>
+<p>築年数：<%= @property.age %></p>
+<p>備考：<%= @property.note %></p>
+
+
+<%= link_to '編集', edit_property_path(@property) %> |
+<%= link_to '戻る', properties_path %>

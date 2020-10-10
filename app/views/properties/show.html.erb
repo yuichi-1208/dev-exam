@@ -12,6 +12,7 @@
 <h4>最寄駅1</h4>
 
 <% @nearest_stations.each do |nearest_station| %>
+
     <p>路線名：<%= nearest_station.route_name %></p>
     <p>駅名：<%= nearest_station.station_name %></p>
     <p>徒歩分数：<%= nearest_station.time %>分</p>

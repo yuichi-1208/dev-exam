@@ -1,0 +1,39 @@
+<%= form_with(model: property, local: true) do |form| %>
+  <% if property.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(property.errors.count, "error") %> prohibited this property from being saved:</h2>
+
+      <ul>
+      <% property.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <p><%= form.label :物件名 %></p>
+    <p><%= form.text_field :property_name %></p>
+    <p><%= form.label :賃料 %></p>
+    <p><%= form.text_field :rent %>円</p>
+    <p><%= form.label :住所 %></p>
+    <p><%= form.text_field :address %></p>
+    <p><%= form.label :築年数 %></p>
+    <p><%= form.text_field :age %>年</p>
+    <p><%= form.label :備考 %></p>
+    <p><%= form.text_area :note %></p>
+
+    <hr>
+
+      <%= form.fields_for :nearest_stations do |f| %>
+      <h4>最寄り駅</h4>
+        <p><%= f.label :路線名%></p>
+        <p><%= f.text_field :route_name %></p>
+        <p><%= f.label :駅名%></p>
+        <p><%= f.text_field :station_name %></p>
+        <p><%= f.label :徒歩分数%></p>
+        <p><%= f.text_field :time %>分</p>
+      <% end %>
+  <div class="actions">
+    <p><%= form.submit value="登録する"%></p>
+  </div>
+<% end %>
